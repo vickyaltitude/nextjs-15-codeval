@@ -18,7 +18,7 @@ export default function ProductError({
   }
   return (
     <>
-      <h3>Oh.! oh.! We're sorry {error.message}</h3>
+      <h3>Oh.! oh.! We re sorry {error.message}</h3>
       <button onClick={reload}>Retry</button>
     </>
   );

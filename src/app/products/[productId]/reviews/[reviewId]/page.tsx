@@ -13,7 +13,7 @@ export default async function ReviewPage({
   }
   return (
     <h3>
-      This is {productId}'s review page {reviewId}
+      This is {productId}s review page {reviewId}
     </h3>
   );
 }
