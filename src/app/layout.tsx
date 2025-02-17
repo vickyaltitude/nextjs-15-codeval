@@ -49,6 +49,7 @@ export default function AuthRootLayout({
               </Link>
             );
           })}
+          <Link href="/complex-dashboard">Complex dashboard</Link>
           <Link href="/article-1?lang=en">Article 1</Link>
           <Link href="/article-1?lang=fr">Article 1</Link>
           <Link href="/article-1?lang=sp">Article 1</Link>
