@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import DisplayThemeProvider from "@/components/ThemeProvider";
 
 /* export const metadata = {
   title: "Next.js",
@@ -23,44 +24,46 @@ export default function AuthRootLayout({
   const pathName = usePathname();
   return (
     <html lang="en">
-      <body>
-        <header
-          style={{
-            background: "skyblue",
-            color: "black",
-            padding: "1rem",
-            display: "flex",
-            gap: "10px",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {routes.map((route) => {
-            const isActive: boolean =
-              route.href === pathName ||
-              (pathName.startsWith(route.href) && route.href !== "/");
-            return (
-              <Link
-                style={{ color: isActive ? "green" : "blue" }}
-                key={route.name}
-                href={route.href}
-              >
-                {route.name}
-              </Link>
-            );
-          })}
-          <Link href="/complex-dashboard">Complex dashboard</Link>
-          <Link href="/article-1?lang=en">Article 1</Link>
-          <Link href="/article-1?lang=fr">Article 1</Link>
-          <Link href="/article-1?lang=sp">Article 1</Link>
-        </header>
-        {children}
-        <footer
-          style={{ background: "skyblue", color: "black", padding: "1rem" }}
-        >
-          Footer &copy; {year.getFullYear()}
-        </footer>
-      </body>
+      <DisplayThemeProvider>
+        <body>
+          <header
+            style={{
+              background: "skyblue",
+              color: "black",
+              padding: "1rem",
+              display: "flex",
+              gap: "10px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {routes.map((route) => {
+              const isActive: boolean =
+                route.href === pathName ||
+                (pathName.startsWith(route.href) && route.href !== "/");
+              return (
+                <Link
+                  style={{ color: isActive ? "green" : "blue" }}
+                  key={route.name}
+                  href={route.href}
+                >
+                  {route.name}
+                </Link>
+              );
+            })}
+            <Link href="/complex-dashboard">Complex dashboard</Link>
+            <Link href="/article-1?lang=en">Article 1</Link>
+            <Link href="/article-1?lang=fr">Article 1</Link>
+            <Link href="/article-1?lang=sp">Article 1</Link>
+          </header>
+          {children}
+          <footer
+            style={{ background: "skyblue", color: "black", padding: "1rem" }}
+          >
+            Footer &copy; {year.getFullYear()}
+          </footer>
+        </body>
+      </DisplayThemeProvider>
     </html>
   );
 }
